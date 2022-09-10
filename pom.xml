@@ -7,11 +7,93 @@
     <groupId>org.example</groupId>
     <artifactId>PaymentForDay</artifactId>
     <version>1.0-SNAPSHOT</version>
+<dependencies>
+
+
+    <dependency>
+        <groupId>com.vip.ensemble.napi</groupId>
+        <artifactId>napi</artifactId>
+        <version>1</version>
+        <scope>system</scope>
+        <systemPath>${basedir}/src/main/resources/lib/napi.jar</systemPath>
+    </dependency>
+
+    <dependency>
+        <groupId>org.apache.commons.httpclient</groupId>
+        <artifactId>httpclient</artifactId>
+        <version>1</version>
+        <scope>system</scope>
+        <systemPath>${basedir}/src/main/resources/lib/commons-httpclient-3.1.jar</systemPath>
+    </dependency>
+
+    <dependency>
+        <groupId>org.postgresql</groupId>
+        <artifactId>postgresql</artifactId>
+        <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+        <groupId>org.postgresql</groupId>
+        <artifactId>postgresql</artifactId>
+        <version>42.3.6</version>
+    </dependency>
+
+
+    <dependency>
+        <groupId>org.oracle</groupId>
+        <artifactId>ojdbc</artifactId>
+        <version>6</version>
+        <scope>system</scope>
+    <systemPath>${basedir}/src/main/resources/lib/ojdbc6.jar</systemPath>
+    </dependency>
+
+    <dependency>
+        <groupId>bea.jolt</groupId>
+        <artifactId>jolt</artifactId>
+        <version>1</version>
+        <scope>system</scope>
+        <systemPath>${basedir}/src/main/resources/lib/jolt.jar</systemPath>
+    </dependency>
+
+
+
+    <dependency>
+        <groupId>bea.jolt.pool</groupId>
+        <artifactId>pool</artifactId>
+        <version>1</version>
+        <scope>system</scope>
+        <systemPath>${basedir}/src/main/resources/lib/joltjse.jar</systemPath>
+    </dependency>
+
+
+
+</dependencies>
+
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <!-- Build an executable JAR -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <mainClass>org.example.Main</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
